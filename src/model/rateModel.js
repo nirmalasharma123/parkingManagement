@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const rateSchema = new mongoose.Schema({
+    parkingId:{
+        type:mongoose.Schema.Types.ObjectId,
+        require: true
+
+    },
     vehicleType:{
         type:String,
         required:true,

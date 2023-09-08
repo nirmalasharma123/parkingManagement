@@ -35,4 +35,6 @@ const logiValidation =joi.object({
 });
 
 
+
+
 module.exports= {userValidationSchema,logiValidation};

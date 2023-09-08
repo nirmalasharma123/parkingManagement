@@ -5,10 +5,12 @@ const vehicleSchema = new mongoose.Schema({
     ref:"userModel"},
     type:{
         type:String,
-        required:true
+        required:true,
+        enum:[' Two-Wheeler','three-Wheeler','Four-Wheeler','SUV']
     },
     vehicleNumber:{
         type:String,
+        unique:true,
         required:true
     }},
 

@@ -1,36 +1,36 @@
 const mongoose = require('mongoose');
 
     const capacitySchema = new mongoose.Schema({
-        parking_id:{
-            type:objectId,
-            require: true
+        parkingId:{
+            type:mongoose.Schema.Types.ObjectId,
+            required: true
           },
           totalCapacityFourWheeler:{
-            type:number,
-            require:true
+            type:Number,
+            required:true
           },
           totalCapacityThreeWheeler:{
-            type:number,
-            require:true
+            type:Number,
+            required:true
           },
           totalCapacityTwoWheeler:{
-            type:number,
-            require:true
+            type:Number,
+            required:true
           },
           availableFourWheeler:{
-            type:number,
+            type:Number,
             default: ()=>{
               return this.totalCapacityFourWheeler
             }
           },
           availableThreeWheeler:{
-            type:number,
+            type:Number,
             default: ()=>{
               return this.totalCapacityThreeWheeler
             }
           },
           availableTwoWheeler:{
-            type:number,
+            type:Number,
             default: ()=>{
               return this.totalCapacityTwoWheeler
         }
