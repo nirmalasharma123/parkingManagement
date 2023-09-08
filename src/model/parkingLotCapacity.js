@@ -1,27 +1,45 @@
 const mongoose = require('mongoose');
 
     const capacitySchema = new mongoose.Schema({
-        parkingId :{
-            type:mongoose.Schema.Types.ObjectId,
-            ref:'Parking',
-        },
-        vehicleType:{
-            type:String,
-            required:true,
-            enum:[' Two-Wheeler','three-Wheeler','Four-Wheeler','SUV']
-        },
-        totalCapacity:{
-            type:Number,
-            required:true
-        },  
-        availableCapacity:{
-            type:Number,
-            default:0
-
+        parking_id:{
+            type:objectId,
+            require: true
+          },
+          totalCapacityFourWheeler:{
+            type:number,
+            require:true
+          },
+          totalCapacityThreeWheeler:{
+            type:number,
+            require:true
+          },
+          totalCapacityTwoWheeler:{
+            type:number,
+            require:true
+          },
+          availableFourWheeler:{
+            type:number,
+            default: ()=>{
+              return this.totalCapacityFourWheeler
+            }
+          },
+          availableThreeWheeler:{
+            type:number,
+            default: ()=>{
+              return this.totalCapacityThreeWheeler
+            }
+          },
+          availableTwoWheeler:{
+            type:number,
+            default: ()=>{
+              return this.totalCapacityTwoWheeler
         }
     },
-
+},
         {timestamps:true
 
     })
     module.exports = mongoose.model('Capacity',capacitySchema);
+
+
+    
