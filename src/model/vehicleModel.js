@@ -6,7 +6,7 @@ const vehicleSchema = new mongoose.Schema({
     type:{
         type:String,
         required:true,
-        enum:[' Two-Wheeler','three-Wheeler','Four-Wheeler','SUV']
+        enum:['Two-Wheeler','Three-Wheeler','Four-Wheeler']
     },
     vehicleNumber:{
         type:String,

@@ -12,20 +12,18 @@ const parkingEntrySchema = new mongoose.Schema({
 
     },
     entryTime: {
-        type: Date,
+        type: String,
         required: true,
 
     },
     exitTime:{
-        type: Date
+        type: String
 
     },
-    AmountPaid:{
+    amountPaid:{
         Type:Number,
-        default:0
     },
 },
-
     {timestamps:true
 
     }

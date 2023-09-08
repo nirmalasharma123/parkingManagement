@@ -19,9 +19,7 @@ const mongoose = require('mongoose');
           },
           availableFourWheeler:{
             type:Number,
-            default: ()=>{
-              return this.totalCapacityFourWheeler
-            }
+            default:this.totalCapacityFourWheeler
           },
           availableThreeWheeler:{
             type:Number,

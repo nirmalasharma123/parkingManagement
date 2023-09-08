@@ -9,15 +9,21 @@ const rateSchema = new mongoose.Schema({
     vehicleType:{
         type:String,
         required:true,
-        enum:[' Two-Wheeler','three-Wheeler','Four-Wheeler','SUV']
+        enum:['Two-Wheeler','Three-Wheeler','Four-Wheeler']
 
     },
-    rates:[
-        {
-            hoursRange:{type:String,required:true},
-            rate:{type:Number}
-        }
-    ]
+    uptoTwoHour:{
+      type:Number,
+      required:true
+    },
+    twoToFour:{
+      type:Number,
+      required:true
+    },
+    moreThenFour:{
+      type:Number,
+      required:true
+    }
 
 })
 module .exports = mongoose.model('rate',rateSchema);
