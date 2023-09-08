@@ -17,7 +17,8 @@ const parkingEntrySchema = new mongoose.Schema({
 
     },
     exitTime:{
-        type: String
+        type: String,
+        default:""
 
     },
     amountPaid:{

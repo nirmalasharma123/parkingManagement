@@ -154,10 +154,11 @@ const vehicleExit = async (req, res) => {
     const formattedDateTime = currentDateTime.toLocaleString("en-IN", options);
   
     const updateData = await parkingEntryModel.findOneAndUpdate(
-      { vehicleId: vehicleData._id },
+      { vehicleId: vehicleData._id,exitTime:""},
       { $set: { exitTime: formattedDateTime } },
       { new: true }
     );
+    if(updateData===null) return res.status(400).send({ status: false, message: "Vehicle not found" });
   
     let vehicleType;
   
@@ -183,7 +184,7 @@ const vehicleExit = async (req, res) => {
   
     const entryTime = new Date(updateData.entryTime);
     const exitTime = new Date(updateData.exitTime);
-    const timeDifference = (exitTime - entryTime) / (1000 * 60 * 60); // Duration in hours
+    const timeDifference = (exitTime - entryTime) / (1000 * 60 * 60); 
   
     let finalCost = null;
   
@@ -201,12 +202,13 @@ const vehicleExit = async (req, res) => {
         { $set: { amountPaid: finalCost } },
         { new: true }
       );
-      return res.status(200).send({
+      
+    }
+    return res.status(200).send({
         status: true,
         message: "Vehicle exit successful",
-        data: finalUpdate,
+        
       });
-    }
 }catch(error){
     return res.status(500).send({error:error.message});
 
