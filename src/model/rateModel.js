@@ -4,7 +4,7 @@ const rateSchema = new mongoose.Schema({
     vehicleType:{
         type:String,
         required:true,
-        enum:[' Two-Wheeler','three-Wheeler','Four-Wheeler','SUV-car']
+        enum:[' Two-Wheeler','three-Wheeler','Four-Wheeler','SUV']
 
     },
     rates:[
@@ -15,3 +15,4 @@ const rateSchema = new mongoose.Schema({
     ]
 
 })
+module .exports = mongoose.model('rate',rateSchema);

@@ -8,11 +8,11 @@ const mongoose = require('mongoose');
         vehicleType:{
             type:String,
             required:true,
-            enum:[' Two-Wheeler','three-Wheeler','Four-Wheeler','SUV-car']
+            enum:[' Two-Wheeler','three-Wheeler','Four-Wheeler','SUV']
         },
         totalCapacity:{
             type:Number,
-            default:0
+            required:true
         },  
         availableCapacity:{
             type:Number,

@@ -7,14 +7,13 @@ const parkingEntrySchema = new mongoose.Schema({
 
     },
     entryTime: {
+        type: Date,
+        required: true,
 
     },
     exitTime:{
+        type: Date
 
-    },
-    duration:{
-        type:Number,
-        default:0
     },
     AmountPaid:{
         Type:Number,
@@ -27,3 +26,5 @@ const parkingEntrySchema = new mongoose.Schema({
     }
 
 )
+
+module.exports = mongoose.model('parkingEntry', parkingEntrySchema);
