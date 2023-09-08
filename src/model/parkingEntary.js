@@ -6,6 +6,11 @@ const parkingEntrySchema = new mongoose.Schema({
         ref : 'vehicle'
 
     },
+    parkingId:{
+        type : mongoose.Schema.Types.ObjectId,
+        ref:'Parking'
+
+    },
     entryTime: {
         type: Date,
         required: true,
