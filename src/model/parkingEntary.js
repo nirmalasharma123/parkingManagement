@@ -1,34 +1,31 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const parkingEntrySchema = new mongoose.Schema({
-    vehicleId :{
-        type : mongoose.Schema.Types.ObjectId,
-        ref : 'vehicle'
-
+const parkingEntrySchema = new mongoose.Schema(
+  {
+    vehicleId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "vehicle",
     },
-    parkingId:{
-        type : mongoose.Schema.Types.ObjectId,
-        ref:'Parking'
-
+    parkingId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Parking",
     },
     entryTime: {
-        type: String,
-        required: true,
-
+      type: String,
+      required: true,
     },
-    exitTime:{
-        type: String,
-        default:""
-
+    exitTime: {
+      type: String,
     },
-    amountPaid:{
-        Type:Number,
+    amountPaid: {
+      Type: Number,
     },
-},
-    {timestamps:true
+    vehicleExited: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  { timestamps: true }
+);
 
-    }
-
-)
-
-module.exports = mongoose.model('parkingEntry', parkingEntrySchema);
+module.exports = mongoose.model("parkingEntry", parkingEntrySchema);
